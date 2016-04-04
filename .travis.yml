@@ -22,7 +22,7 @@ deploy:
     on:
         tags: true
 
-script: ./gradlew :app:build :app:connectedDebugAndroidTest
+script: ./gradlew :app:build
 
 env:
     global:
