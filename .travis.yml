@@ -27,6 +27,7 @@ script: ./gradlew :app:build :app:connectedDebugAndroidTest
 env:
     global:
         - MALLOC_ARENA_MAX=2
+        - ADB_INSTALL_TIMEOUT=50
 
 sudo: required
 
