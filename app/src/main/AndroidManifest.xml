@@ -19,10 +19,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".view.HomeView"
-            android:label="@string/title_activity_home_view"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
 
         <meta-data android:name="DATABASE" android:value="mobilsoftDb.db" />
         <meta-data android:name="VERSION" android:value="1" />
