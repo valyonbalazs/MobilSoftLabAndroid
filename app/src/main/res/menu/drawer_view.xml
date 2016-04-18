@@ -9,6 +9,9 @@
             android:title="Top Movies" />
         <item
             android:id="@+id/nav_third_fragment"
-            android:title="Third" />
+            android:title="New Movies" />
+        <item
+            android:id="@+id/nav_fourth_fragment"
+            android:title="Aired TV Shows" />
     </group>
 </menu>
