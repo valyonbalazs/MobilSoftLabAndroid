@@ -4,6 +4,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.valyonb.mobilsoftlabandroid.R;
@@ -36,10 +37,10 @@ public class FavouritesPresenter extends
     @Override
     public void onBindViewHolder(final ViewHolder holder, int position) {
         holder.mItem = mValues.get(position);
-        holder.mIdView.setText(mValues.get(position).getMovieTitle());
-        holder.mContentView.setText(mValues.get(position).getMovieShortDescription());
+        holder.movieTitle.setText(mValues.get(position).getMovieTitle());
+        holder.movieShortDescription.setText(mValues.get(position).getMovieShortDescription());
 
-        holder.mView.setOnClickListener(new View.OnClickListener() {
+        holder.movieItem.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (null != mListener) {
@@ -62,16 +63,18 @@ public class FavouritesPresenter extends
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        public final View mView;
-        public final TextView mIdView;
-        public final TextView mContentView;
+        public final View movieItem;
+        public ImageView movieImage = null;
+        public final TextView movieTitle;
+        public final TextView movieShortDescription;
         public MovieModel mItem;
 
         public ViewHolder(View view) {
             super(view);
-            mView = view;
-            mIdView = (TextView) view.findViewById(R.id.movieTitle);
-            mContentView = (TextView) view.findViewById(R.id.shortDescription);
+            movieItem = view;
+            movieTitle = (TextView) view.findViewById(R.id.movieTitle);
+            movieShortDescription = (TextView) view.findViewById(R.id.shortDescription);
+            movieImage = (ImageView) view.findViewById(R.id.moviePhoto);
         }
 
     }
