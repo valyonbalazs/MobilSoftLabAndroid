@@ -19,11 +19,13 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import com.valyonb.mobilsoftlabandroid.R;
+import com.valyonb.mobilsoftlabandroid.model.MovieModel;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener,
         HomeFragment.OnFragmentInteractionListener,
-        TopMovies.OnFragmentInteractionListener
+        TopMovies.OnFragmentInteractionListener,
+        FavouritesFragment.OnListFragmentInteractionListener
     {
 
     private DrawerLayout drawer;
@@ -45,6 +47,21 @@ public class MainActivity extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+        // Load HOME fragment by default
+        Fragment fragment = null;
+        Class fragmentClass = HomeFragment.class;
+        try {
+            fragment = (Fragment) fragmentClass.newInstance();
+        } catch (InstantiationException e) {
+            e.printStackTrace();
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        }
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        fragmentManager.beginTransaction().replace(R.id.flContent, fragment).commit();
+        setTitle("HOME");
+
     }
 
     @Override
@@ -101,7 +118,10 @@ public class MainActivity extends AppCompatActivity
             fragmentClass = NewMoviesFragment.class;
         } else if (id == R.id.nav_fourth_fragment) {
             fragmentClass = AiredTvShowsFragment.class;
-        } else {
+        } else if (id == R.id.nav_fifth_fragment) {
+            fragmentClass = FavouritesFragment.class;
+        }
+        else {
             fragmentClass = HomeFragment.class;
         }
 
@@ -177,6 +197,11 @@ public class MainActivity extends AppCompatActivity
 
         @Override
         public void onFragmentInteraction(Uri uri) {
+
+        }
+
+        @Override
+        public void onListFragmentInteraction(MovieModel item) {
 
         }
     }
