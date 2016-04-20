@@ -75,6 +75,7 @@ public class FavouritesPresenter extends
             movieTitle = (TextView) view.findViewById(R.id.movieTitle);
             movieShortDescription = (TextView) view.findViewById(R.id.shortDescription);
             movieImage = (ImageView) view.findViewById(R.id.moviePhoto);
+            movieImage.setImageResource(R.drawable.swlogotest);
         }
 
     }

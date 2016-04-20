@@ -46,6 +46,32 @@
                 android:layout_below="@+id/movieTitle"
                 android:textAppearance="?attr/textAppearanceListItem" />
 
+            <Button
+                android:id="@+id/imdbButton"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:text="IMDB"
+                android:layout_toRightOf="@+id/moviePhoto"
+                android:layout_below="@+id/shortDescription"
+                android:onClick="selfDestruct" />
+
+            <Button
+                android:id="@+id/trailerButton"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:text="TRAILER"
+                android:layout_below="@+id/shortDescription"
+                android:layout_toRightOf="@+id/imdbButton"
+                android:onClick="selfDestruct" />
+
+            <Button
+                android:id="@+id/removeButton"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:text="X"
+                android:layout_below="@+id/shortDescription"
+                android:layout_toRightOf="@+id/trailerButton"
+                android:onClick="selfDestruct" />
         </RelativeLayout>
 
     </android.support.v7.widget.CardView>
