@@ -23,7 +23,9 @@ public class MainActivity extends AppCompatActivity
         NavigationView.OnNavigationItemSelectedListener,
         HomeFragment.OnFragmentInteractionListener,
         TopMoviesFragment.OnFragmentInteractionListener,
-        FavouritesFragment.OnListFragmentInteractionListener
+        NewMoviesFragment.OnFragmentInteractionListener,
+        AiredTvShowsFragment.OnFragmentInteractionListener,
+        FavouritesFragment.OnFragmentInteractionListener
     {
 
     private DrawerLayout drawer;
@@ -143,11 +145,6 @@ public class MainActivity extends AppCompatActivity
 
     @Override
     public void onFragmentInteraction(Uri uri) {
-
-    }
-
-    @Override
-    public void onListFragmentInteraction(MovieModel item) {
 
     }
 }

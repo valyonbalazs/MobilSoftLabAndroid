@@ -1,6 +1,7 @@
 package com.valyonb.mobilsoftlabandroid.view;
 
 import android.content.Context;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.GridLayoutManager;
@@ -11,75 +12,76 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.valyonb.mobilsoftlabandroid.R;
+import com.valyonb.mobilsoftlabandroid.adapter.FavouritesAdapter;
+import com.valyonb.mobilsoftlabandroid.adapter.HomeAdapter;
 import com.valyonb.mobilsoftlabandroid.interactor.FavouritesInteractor;
 import com.valyonb.mobilsoftlabandroid.model.MovieModel;
 import com.valyonb.mobilsoftlabandroid.presenter.FavouritesPresenter;
+import com.valyonb.mobilsoftlabandroid.presenter.HomePresenter;
 
-public class FavouritesFragment extends Fragment {
+import java.util.ArrayList;
+import java.util.List;
 
-    private static final String ARG_COLUMN_COUNT = "column-count";
-    private int mColumnCount = 1;
-    private OnListFragmentInteractionListener mListener;
+public class FavouritesFragment extends Fragment implements FavouritesScreen {
+
+
+    private OnFragmentInteractionListener mListener;
+    private RecyclerView recyclerViewMovies;
+    private List<MovieModel> movieList;
+    private FavouritesAdapter favouritesAdapter;
 
     public FavouritesFragment() {
+
     }
 
+    @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+        FavouritesPresenter.getInstance().attachScreen(this);
+    }
 
-    public static FavouritesFragment newInstance(int columnCount) {
-        FavouritesFragment fragment = new FavouritesFragment();
-        Bundle args = new Bundle();
-        args.putInt(ARG_COLUMN_COUNT, columnCount);
-        fragment.setArguments(args);
-        return fragment;
+    @Override
+    public void onDetach() {
+        HomePresenter.getInstance().detachScreen();
+        super.onDetach();
     }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        if (getArguments() != null) {
-            mColumnCount = getArguments().getInt(ARG_COLUMN_COUNT);
-        }
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+    public View onCreateView(LayoutInflater inflater,
+                             ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_moviemodel_list, container, false);
 
-        // Set the adapter
-        if (view instanceof RecyclerView) {
-            Context context = view.getContext();
-            RecyclerView recyclerView = (RecyclerView) view;
-            if (mColumnCount <= 1) {
-                recyclerView.setLayoutManager(new LinearLayoutManager(context));
-            } else {
-                recyclerView.setLayoutManager(new GridLayoutManager(context, mColumnCount));
-            }
-             recyclerView.setAdapter(FavouritesPresenter.getInstance(mListener));
-        }
+        View view = inflater.inflate(R.layout.fragment_home, container, false);
+        recyclerViewMovies = (RecyclerView) view.findViewById(R.id.list);
+        LinearLayoutManager llm = new LinearLayoutManager(getContext());
+        llm.setOrientation(LinearLayoutManager.VERTICAL);
+        recyclerViewMovies.setLayoutManager(llm);
+
+        movieList = new ArrayList<>();
+        showMovies(FavouritesPresenter.getInstance().loadMovies());
+        favouritesAdapter = new FavouritesAdapter(getContext(), movieList);
+        recyclerViewMovies.setAdapter(favouritesAdapter);
+        favouritesAdapter.notifyDataSetChanged();
         return view;
     }
 
-
     @Override
-    public void onAttach(Context context) {
-        super.onAttach(context);
-        if (context instanceof OnListFragmentInteractionListener) {
-            mListener = (OnListFragmentInteractionListener) context;
-        } else {
-            throw new RuntimeException(context.toString()
-                    + " must implement OnListFragmentInteractionListener");
-        }
+    public void onResume() {
+        super.onResume();
     }
 
     @Override
-    public void onDetach() {
-        super.onDetach();
-        mListener = null;
+    public void showMovies(List<MovieModel> movieList) {
+        this.movieList.addAll(movieList);
     }
 
-    public interface OnListFragmentInteractionListener {
-        void onListFragmentInteraction(MovieModel item);
+    public interface OnFragmentInteractionListener {
+        void onFragmentInteraction(Uri uri);
     }
 }
