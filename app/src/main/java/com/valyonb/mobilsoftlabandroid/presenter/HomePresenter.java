@@ -1,0 +1,46 @@
+package com.valyonb.mobilsoftlabandroid.presenter;
+
+import org.greenrobot.eventbus.EventBus;
+import com.valyonb.mobilsoftlabandroid.interactor.HomeInteractor;
+import com.valyonb.mobilsoftlabandroid.model.MovieModel;
+import com.valyonb.mobilsoftlabandroid.view.HomeScreen;
+
+import java.util.List;
+
+/**
+ * Created by valyonbalazs on 20/04/16.
+ */
+public class HomePresenter extends Presenter<HomeScreen> {
+
+    private HomeInteractor homeInteractor;
+
+    private static HomePresenter instance = null;
+
+    private HomePresenter() {
+        homeInteractor = new HomeInteractor();
+    }
+
+    public static HomePresenter getInstance() {
+        if(instance == null) {
+            instance = new HomePresenter();
+        }
+        return instance;
+    }
+
+    public List<MovieModel> loadMovies() {
+        // screen.showMovies(homeInteractor.getMovieList());
+        return homeInteractor.getMovieList();
+    }
+
+    @Override
+    public void attachScreen(HomeScreen screen) {
+        super.attachScreen(screen);
+        // EventBus.getDefault().register(this);
+    }
+
+    @Override
+    public void detachScreen() {
+        // EventBus.getDefault().unregister(this);
+        super.detachScreen();
+    }
+}

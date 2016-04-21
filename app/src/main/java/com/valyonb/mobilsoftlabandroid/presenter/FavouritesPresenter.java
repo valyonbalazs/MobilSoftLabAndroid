@@ -8,9 +8,11 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.valyonb.mobilsoftlabandroid.R;
+import com.valyonb.mobilsoftlabandroid.interactor.FavouritesInteractor;
 import com.valyonb.mobilsoftlabandroid.view.FavouritesFragment.OnListFragmentInteractionListener;
 import com.valyonb.mobilsoftlabandroid.model.MovieModel;
 import com.valyonb.mobilsoftlabandroid.view.FavouritesFragment;
+import com.valyonb.mobilsoftlabandroid.view.IFavouritesFragment;
 
 import java.util.List;
 
@@ -19,12 +21,21 @@ public class FavouritesPresenter extends
         implements FavouritesFragment.OnListFragmentInteractionListener
 {
 
-    private final List<MovieModel> mValues;
-    private final OnListFragmentInteractionListener mListener;
+    private static List<MovieModel> mValues = null;
+    private static OnListFragmentInteractionListener mListener = null;
+    private static FavouritesPresenter instance = null;
 
-    public FavouritesPresenter(List<MovieModel> items, OnListFragmentInteractionListener listener) {
-        mValues = items;
-        mListener = listener;
+    public FavouritesPresenter() {
+
+    }
+
+    public static FavouritesPresenter getInstance(OnListFragmentInteractionListener listener) {
+        if(instance == null) {
+            instance = new FavouritesPresenter();
+            mValues = new FavouritesInteractor().ITEMS;
+            mListener = listener;
+        }
+        return instance;
     }
 
     @Override

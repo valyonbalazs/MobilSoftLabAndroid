@@ -1,16 +1,18 @@
 package com.valyonb.mobilsoftlabandroid.presenter;
 
+import com.valyonb.mobilsoftlabandroid.view.HomeScreen;
+
 /**
  * Created by mobsoft on 2016. 04. 18..
  */
 public abstract class Presenter<S> {
-    protected S view;
+    protected S screen;
 
-    public void attachView(S screen) {
-        this.view = screen;
+    public void attachScreen(S screen) {
+        this.screen = screen;
     }
 
-    public void detachView() {
-        this.view = null;
+    public void detachScreen() {
+        this.screen = null;
     }
 }

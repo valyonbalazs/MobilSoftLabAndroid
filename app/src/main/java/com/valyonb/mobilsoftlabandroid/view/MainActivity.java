@@ -22,7 +22,8 @@ import com.valyonb.mobilsoftlabandroid.R;
 import com.valyonb.mobilsoftlabandroid.model.MovieModel;
 
 public class MainActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener,
+        implements
+        NavigationView.OnNavigationItemSelectedListener,
         HomeFragment.OnFragmentInteractionListener,
         TopMovies.OnFragmentInteractionListener,
         FavouritesFragment.OnListFragmentInteractionListener
@@ -137,71 +138,19 @@ public class MainActivity extends AppCompatActivity
         item.setChecked(true);
         // Set action bar title
         setTitle(item.getTitle());
-
-
-        /*drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        drawer.closeDrawer(GravityCompat.START);*/
-        return true;
-
-    }
-
-    private void setupDrawerContent(NavigationView navigationView) {
-        navigationView.setNavigationItemSelectedListener(
-                new NavigationView.OnNavigationItemSelectedListener() {
-                    @Override
-                    public boolean onNavigationItemSelected(MenuItem menuItem) {
-                        selectDrawerItem(menuItem);
-                        return true;
-                    }
-                });
-    }
-
-    public void selectDrawerItem(MenuItem menuItem) {
-        // Create a new fragment and specify the fragment to show based on nav item clicked
-        Fragment fragment = null;
-        Class fragmentClass = null;
-        switch(menuItem.getItemId()) {
-            case R.id.nav_first_fragment:
-                fragmentClass = HomeFragment.class;
-                break;
-            case R.id.nav_second_fragment:
-                fragmentClass = TopMovies.class;
-                break;
-            case R.id.nav_third_fragment:
-                fragmentClass = NewMoviesFragment.class;
-                break;
-            case R.id.nav_fourth_fragment:
-                fragmentClass = AiredTvShowsFragment.class;
-                break;
-            default:
-                fragmentClass = HomeFragment.class;
-        }
-
-        try {
-            fragment = (Fragment) fragmentClass.newInstance();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
-        // Insert the fragment by replacing any existing fragment
-        FragmentManager fragmentManager = getSupportFragmentManager();
-        fragmentManager.beginTransaction().replace(R.id.flContent, fragment).commit();
-
-        // Highlight the selected item has been done by NavigationView
-        menuItem.setChecked(true);
-        // Set action bar title
-        setTitle(menuItem.getTitle());
-        // Close the navigation drawer
         drawer.closeDrawers();
+
+        return true;
     }
 
-        @Override
-        public void onFragmentInteraction(Uri uri) {
 
-        }
+    @Override
+    public void onFragmentInteraction(Uri uri) {
 
-        @Override
-        public void onListFragmentInteraction(MovieModel item) {
-
-        }
     }
+
+    @Override
+    public void onListFragmentInteraction(MovieModel item) {
+
+    }
+}
