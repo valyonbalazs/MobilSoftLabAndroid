@@ -12,7 +12,6 @@ import com.valyonb.mobilsoftlabandroid.interactor.FavouritesInteractor;
 import com.valyonb.mobilsoftlabandroid.view.FavouritesFragment.OnListFragmentInteractionListener;
 import com.valyonb.mobilsoftlabandroid.model.MovieModel;
 import com.valyonb.mobilsoftlabandroid.view.FavouritesFragment;
-import com.valyonb.mobilsoftlabandroid.view.IFavouritesFragment;
 
 import java.util.List;
 

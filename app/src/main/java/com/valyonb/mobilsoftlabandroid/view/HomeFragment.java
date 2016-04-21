@@ -1,11 +1,9 @@
 package com.valyonb.mobilsoftlabandroid.view;
 
-import android.content.ClipData;
 import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -73,8 +71,6 @@ public class HomeFragment extends Fragment implements HomeScreen {
     @Override
     public void onResume() {
         super.onResume();
-
-
     }
 
     @Override

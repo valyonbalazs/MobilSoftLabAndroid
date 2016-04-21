@@ -11,35 +11,34 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.valyonb.mobilsoftlabandroid.R;
-import com.valyonb.mobilsoftlabandroid.adapter.HomeAdapter;
-import com.valyonb.mobilsoftlabandroid.adapter.NewMoviesAdapter;
+import com.valyonb.mobilsoftlabandroid.adapter.TopMoviesAdapter;
 import com.valyonb.mobilsoftlabandroid.model.MovieModel;
-import com.valyonb.mobilsoftlabandroid.presenter.HomePresenter;
-import com.valyonb.mobilsoftlabandroid.presenter.NewMoviesPresenter;
+import com.valyonb.mobilsoftlabandroid.presenter.TopMoviesPresenter;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class NewMoviesFragment extends Fragment implements NewMoviesScreen {
+
+public class TopMoviesFragment extends Fragment implements TopMoviesScreen {
 
     private OnFragmentInteractionListener mListener;
     private RecyclerView recyclerViewMovies;
     private List<MovieModel> movieList;
-    private NewMoviesAdapter newMoviesAdapter;
+    private TopMoviesAdapter topMoviesAdapter;
 
-    public NewMoviesFragment() {
+    public TopMoviesFragment() {
 
     }
 
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
-        NewMoviesPresenter.getInstance().attachScreen(this);
+        TopMoviesPresenter.getInstance().attachScreen(this);
     }
 
     @Override
     public void onDetach() {
-        HomePresenter.getInstance().detachScreen();
+        TopMoviesPresenter.getInstance().detachScreen();
         super.onDetach();
     }
 
@@ -61,10 +60,10 @@ public class NewMoviesFragment extends Fragment implements NewMoviesScreen {
         recyclerViewMovies.setLayoutManager(llm);
 
         movieList = new ArrayList<>();
-        showMovies(NewMoviesPresenter.getInstance().loadMovies());
-        newMoviesAdapter = new NewMoviesAdapter(getContext(), movieList);
-        recyclerViewMovies.setAdapter(newMoviesAdapter);
-        newMoviesAdapter.notifyDataSetChanged();
+        showMovies(TopMoviesPresenter.getInstance().loadMovies());
+        topMoviesAdapter = new TopMoviesAdapter(getContext(), movieList);
+        recyclerViewMovies.setAdapter(topMoviesAdapter);
+        topMoviesAdapter.notifyDataSetChanged();
         return view;
     }
 

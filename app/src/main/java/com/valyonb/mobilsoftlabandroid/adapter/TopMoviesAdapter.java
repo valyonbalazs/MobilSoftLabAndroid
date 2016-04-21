@@ -17,12 +17,12 @@ import java.util.List;
 /**
  * Created by valyonbalazs on 21/04/16.
  */
-public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.ViewHolder> {
+public class TopMoviesAdapter extends RecyclerView.Adapter<TopMoviesAdapter.ViewHolder> {
 
     private List<MovieModel> movieList;
     private Context context;
 
-    public HomeAdapter(Context context, List<MovieModel> moviesList) {
+    public TopMoviesAdapter(Context context, List<MovieModel> moviesList) {
         this.context = context;
         this.movieList = new ArrayList<>();
         this.movieList.addAll(moviesList);

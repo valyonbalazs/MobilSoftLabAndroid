@@ -4,11 +4,8 @@ package com.valyonb.mobilsoftlabandroid.view;
 import android.content.res.Configuration;
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
-import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -25,7 +22,7 @@ public class MainActivity extends AppCompatActivity
         implements
         NavigationView.OnNavigationItemSelectedListener,
         HomeFragment.OnFragmentInteractionListener,
-        TopMovies.OnFragmentInteractionListener,
+        TopMoviesFragment.OnFragmentInteractionListener,
         FavouritesFragment.OnListFragmentInteractionListener
     {
 
@@ -114,7 +111,7 @@ public class MainActivity extends AppCompatActivity
         if (id == R.id.nav_first_fragment) {
             fragmentClass = HomeFragment.class;
         } else if (id == R.id.nav_second_fragment) {
-            fragmentClass = TopMovies.class;
+            fragmentClass = TopMoviesFragment.class;
         } else if (id == R.id.nav_third_fragment) {
             fragmentClass = NewMoviesFragment.class;
         } else if (id == R.id.nav_fourth_fragment) {
