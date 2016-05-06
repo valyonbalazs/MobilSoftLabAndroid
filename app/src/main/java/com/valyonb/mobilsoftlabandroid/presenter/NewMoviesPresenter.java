@@ -1,9 +1,7 @@
 package com.valyonb.mobilsoftlabandroid.presenter;
 
-import com.valyonb.mobilsoftlabandroid.interactor.HomeInteractor;
 import com.valyonb.mobilsoftlabandroid.interactor.NewMoviesInteractor;
-import com.valyonb.mobilsoftlabandroid.model.MovieModel;
-import com.valyonb.mobilsoftlabandroid.view.HomeScreen;
+import com.valyonb.mobilsoftlabandroid.model.Movie;
 import com.valyonb.mobilsoftlabandroid.view.NewMoviesScreen;
 
 import java.util.List;
@@ -28,7 +26,7 @@ public class NewMoviesPresenter extends Presenter<NewMoviesScreen> {
         return instance;
     }
 
-    public List<MovieModel> loadMovies() {
+    public List<Movie> loadMovies() {
         // screen.showMovies(homeInteractor.getMovieList());
         return newMoviesInteractor.getMovieList();
     }

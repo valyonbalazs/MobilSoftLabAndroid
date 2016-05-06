@@ -12,7 +12,7 @@ import android.view.ViewGroup;
 
 import com.valyonb.mobilsoftlabandroid.R;
 import com.valyonb.mobilsoftlabandroid.adapter.TopMoviesAdapter;
-import com.valyonb.mobilsoftlabandroid.model.MovieModel;
+import com.valyonb.mobilsoftlabandroid.model.Movie;
 import com.valyonb.mobilsoftlabandroid.presenter.TopMoviesPresenter;
 
 import java.util.ArrayList;
@@ -23,7 +23,7 @@ public class TopMoviesFragment extends Fragment implements TopMoviesScreen {
 
     private OnFragmentInteractionListener mListener;
     private RecyclerView recyclerViewMovies;
-    private List<MovieModel> movieList;
+    private List<Movie> movieList;
     private TopMoviesAdapter topMoviesAdapter;
 
     public TopMoviesFragment() {
@@ -73,7 +73,7 @@ public class TopMoviesFragment extends Fragment implements TopMoviesScreen {
     }
 
     @Override
-    public void showMovies(List<MovieModel> movieList) {
+    public void showMovies(List<Movie> movieList) {
         this.movieList.addAll(movieList);
     }
 

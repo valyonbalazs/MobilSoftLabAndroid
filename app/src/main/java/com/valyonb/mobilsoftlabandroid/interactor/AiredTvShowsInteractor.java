@@ -1,6 +1,7 @@
 package com.valyonb.mobilsoftlabandroid.interactor;
 
-import com.valyonb.mobilsoftlabandroid.model.MovieModel;
+import com.valyonb.mobilsoftlabandroid.model.Movie;
+import com.valyonb.mobilsoftlabandroid.model.MovieFragmentType;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -10,21 +11,22 @@ import java.util.List;
  */
 public class AiredTvShowsInteractor {
 
-    private List<MovieModel> movieList;
+    private List<Movie> movieList;
 
     public AiredTvShowsInteractor() {
         movieList = new ArrayList<>();
-        movieList.add(new MovieModel(
+        movieList.add(new Movie(
+                MovieFragmentType.AIREDTVSHOW,
                 "1",
                 "Deadpool",
                 "Cancer patient mercenary...",
-                "long time ago in a galaxy far far away..",
+                null,
                 5,
                 "http://imdb.com",
                 "http://youtube.com"));
     }
 
-    public List<MovieModel> getMovieList() {
+    public List<Movie> getMovieList() {
         return movieList;
     }
 }

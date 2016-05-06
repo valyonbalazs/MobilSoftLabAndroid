@@ -4,7 +4,6 @@ import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -13,9 +12,7 @@ import android.view.ViewGroup;
 
 import com.valyonb.mobilsoftlabandroid.R;
 import com.valyonb.mobilsoftlabandroid.adapter.FavouritesAdapter;
-import com.valyonb.mobilsoftlabandroid.adapter.HomeAdapter;
-import com.valyonb.mobilsoftlabandroid.interactor.FavouritesInteractor;
-import com.valyonb.mobilsoftlabandroid.model.MovieModel;
+import com.valyonb.mobilsoftlabandroid.model.Movie;
 import com.valyonb.mobilsoftlabandroid.presenter.FavouritesPresenter;
 import com.valyonb.mobilsoftlabandroid.presenter.HomePresenter;
 
@@ -27,7 +24,7 @@ public class FavouritesFragment extends Fragment implements FavouritesScreen {
 
     private OnFragmentInteractionListener mListener;
     private RecyclerView recyclerViewMovies;
-    private List<MovieModel> movieList;
+    private List<Movie> movieList;
     private FavouritesAdapter favouritesAdapter;
 
     public FavouritesFragment() {
@@ -77,7 +74,7 @@ public class FavouritesFragment extends Fragment implements FavouritesScreen {
     }
 
     @Override
-    public void showMovies(List<MovieModel> movieList) {
+    public void showMovies(List<Movie> movieList) {
         this.movieList.addAll(movieList);
     }
 

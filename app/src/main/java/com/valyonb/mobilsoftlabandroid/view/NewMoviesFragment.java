@@ -11,9 +11,8 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.valyonb.mobilsoftlabandroid.R;
-import com.valyonb.mobilsoftlabandroid.adapter.HomeAdapter;
 import com.valyonb.mobilsoftlabandroid.adapter.NewMoviesAdapter;
-import com.valyonb.mobilsoftlabandroid.model.MovieModel;
+import com.valyonb.mobilsoftlabandroid.model.Movie;
 import com.valyonb.mobilsoftlabandroid.presenter.HomePresenter;
 import com.valyonb.mobilsoftlabandroid.presenter.NewMoviesPresenter;
 
@@ -24,7 +23,7 @@ public class NewMoviesFragment extends Fragment implements NewMoviesScreen {
 
     private OnFragmentInteractionListener mListener;
     private RecyclerView recyclerViewMovies;
-    private List<MovieModel> movieList;
+    private List<Movie> movieList;
     private NewMoviesAdapter newMoviesAdapter;
 
     public NewMoviesFragment() {
@@ -74,7 +73,7 @@ public class NewMoviesFragment extends Fragment implements NewMoviesScreen {
     }
 
     @Override
-    public void showMovies(List<MovieModel> movieList) {
+    public void showMovies(List<Movie> movieList) {
         this.movieList.addAll(movieList);
     }
 

@@ -1,6 +1,6 @@
 package com.valyonb.mobilsoftlabandroid.view;
 
-import com.valyonb.mobilsoftlabandroid.model.MovieModel;
+import com.valyonb.mobilsoftlabandroid.model.Movie;
 
 import java.util.List;
 
@@ -9,5 +9,5 @@ import java.util.List;
  */
 public interface HomeScreen {
 
-    public void showMovies(List<MovieModel> movieList);
+    public void showMovies(List<Movie> movieList);
 }

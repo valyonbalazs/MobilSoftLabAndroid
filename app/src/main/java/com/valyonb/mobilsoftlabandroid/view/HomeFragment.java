@@ -12,7 +12,7 @@ import android.view.ViewGroup;
 
 import com.valyonb.mobilsoftlabandroid.R;
 import com.valyonb.mobilsoftlabandroid.adapter.HomeAdapter;
-import com.valyonb.mobilsoftlabandroid.model.MovieModel;
+import com.valyonb.mobilsoftlabandroid.model.Movie;
 import com.valyonb.mobilsoftlabandroid.presenter.HomePresenter;
 
 import java.util.ArrayList;
@@ -24,7 +24,7 @@ public class HomeFragment extends Fragment implements HomeScreen {
 
     private OnFragmentInteractionListener mListener;
     private RecyclerView recyclerViewMovies;
-    private List<MovieModel> movieList;
+    private List<Movie> movieList;
     private HomeAdapter homeAdapter;
 
     public HomeFragment() {
@@ -74,7 +74,7 @@ public class HomeFragment extends Fragment implements HomeScreen {
     }
 
     @Override
-    public void showMovies(List<MovieModel> movieList) {
+    public void showMovies(List<Movie> movieList) {
         this.movieList.addAll(movieList);
     }
 

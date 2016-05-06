@@ -12,8 +12,7 @@ import android.view.ViewGroup;
 
 import com.valyonb.mobilsoftlabandroid.R;
 import com.valyonb.mobilsoftlabandroid.adapter.AiredTvShowsAdapter;
-import com.valyonb.mobilsoftlabandroid.adapter.HomeAdapter;
-import com.valyonb.mobilsoftlabandroid.model.MovieModel;
+import com.valyonb.mobilsoftlabandroid.model.Movie;
 import com.valyonb.mobilsoftlabandroid.presenter.AiredTvShowsPresenter;
 import com.valyonb.mobilsoftlabandroid.presenter.HomePresenter;
 
@@ -26,7 +25,7 @@ public class AiredTvShowsFragment extends Fragment implements AiredTvShowsScreen
 
     private OnFragmentInteractionListener mListener;
     private RecyclerView recyclerViewMovies;
-    private List<MovieModel> movieList;
+    private List<Movie> movieList;
     private AiredTvShowsAdapter airedTvShowsAdapter;
 
     public AiredTvShowsFragment() {
@@ -76,7 +75,7 @@ public class AiredTvShowsFragment extends Fragment implements AiredTvShowsScreen
     }
 
     @Override
-    public void showMovies(List<MovieModel> movieList) {
+    public void showMovies(List<Movie> movieList) {
         this.movieList.addAll(movieList);
     }
 

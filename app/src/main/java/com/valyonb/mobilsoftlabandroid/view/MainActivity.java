@@ -4,6 +4,7 @@ package com.valyonb.mobilsoftlabandroid.view;
 import android.content.res.Configuration;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.StrictMode;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.design.widget.NavigationView;
@@ -16,7 +17,6 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import com.valyonb.mobilsoftlabandroid.R;
-import com.valyonb.mobilsoftlabandroid.model.MovieModel;
 
 public class MainActivity extends AppCompatActivity
         implements
@@ -35,6 +35,10 @@ public class MainActivity extends AppCompatActivity
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
+        StrictMode.setThreadPolicy(policy);
+
         setContentView(R.layout.activity_main);
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);

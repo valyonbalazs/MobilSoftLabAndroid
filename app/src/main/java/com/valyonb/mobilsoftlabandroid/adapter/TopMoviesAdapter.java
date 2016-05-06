@@ -9,7 +9,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.valyonb.mobilsoftlabandroid.R;
-import com.valyonb.mobilsoftlabandroid.model.MovieModel;
+import com.valyonb.mobilsoftlabandroid.model.Movie;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,10 +19,10 @@ import java.util.List;
  */
 public class TopMoviesAdapter extends RecyclerView.Adapter<TopMoviesAdapter.ViewHolder> {
 
-    private List<MovieModel> movieList;
+    private List<Movie> movieList;
     private Context context;
 
-    public TopMoviesAdapter(Context context, List<MovieModel> moviesList) {
+    public TopMoviesAdapter(Context context, List<Movie> moviesList) {
         this.context = context;
         this.movieList = new ArrayList<>();
         this.movieList.addAll(moviesList);
@@ -36,7 +36,7 @@ public class TopMoviesAdapter extends RecyclerView.Adapter<TopMoviesAdapter.View
 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
-        MovieModel movie = movieList.get(position);
+        Movie movie = movieList.get(position);
 
         holder.movieTitle.setText(movie.getMovieTitle());
         holder.movieShortDescription.setText(movie.getMovieShortDescription());

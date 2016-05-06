@@ -1,10 +1,8 @@
 package com.valyonb.mobilsoftlabandroid.presenter;
 
 import com.valyonb.mobilsoftlabandroid.interactor.AiredTvShowsInteractor;
-import com.valyonb.mobilsoftlabandroid.interactor.HomeInteractor;
-import com.valyonb.mobilsoftlabandroid.model.MovieModel;
+import com.valyonb.mobilsoftlabandroid.model.Movie;
 import com.valyonb.mobilsoftlabandroid.view.AiredTvShowsScreen;
-import com.valyonb.mobilsoftlabandroid.view.HomeScreen;
 
 import java.util.List;
 
@@ -28,7 +26,7 @@ public class AiredTvShowsPresenter extends Presenter<AiredTvShowsScreen> {
         return instance;
     }
 
-    public List<MovieModel> loadMovies() {
+    public List<Movie> loadMovies() {
         // screen.showMovies(homeInteractor.getMovieList());
         return airedTvShowsInteractor.getMovieList();
     }

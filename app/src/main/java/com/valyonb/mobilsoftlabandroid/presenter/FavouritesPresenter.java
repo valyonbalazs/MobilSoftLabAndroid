@@ -1,7 +1,7 @@
 package com.valyonb.mobilsoftlabandroid.presenter;
 
 import com.valyonb.mobilsoftlabandroid.interactor.FavouritesInteractor;
-import com.valyonb.mobilsoftlabandroid.model.MovieModel;
+import com.valyonb.mobilsoftlabandroid.model.Movie;
 import com.valyonb.mobilsoftlabandroid.view.FavouritesScreen;
 
 import java.util.List;
@@ -23,7 +23,7 @@ public class FavouritesPresenter extends Presenter<FavouritesScreen> {
         return instance;
     }
 
-    public List<MovieModel> loadMovies() {
+    public List<Movie> loadMovies() {
         // screen.showMovies(homeInteractor.getMovieList());
         return favouritesInteractor.getMovieList();
     }

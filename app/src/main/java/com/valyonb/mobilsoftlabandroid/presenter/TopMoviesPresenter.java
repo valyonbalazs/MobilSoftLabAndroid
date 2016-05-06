@@ -1,7 +1,7 @@
 package com.valyonb.mobilsoftlabandroid.presenter;
 
 import com.valyonb.mobilsoftlabandroid.interactor.TopMoviesInteractor;
-import com.valyonb.mobilsoftlabandroid.model.MovieModel;
+import com.valyonb.mobilsoftlabandroid.model.Movie;
 import com.valyonb.mobilsoftlabandroid.view.TopMoviesScreen;
 
 import java.util.List;
@@ -27,7 +27,7 @@ public class TopMoviesPresenter extends Presenter<TopMoviesScreen> {
         return instance;
     }
 
-    public List<MovieModel> loadMovies() {
+    public List<Movie> loadMovies() {
         return topMoviesInteractor.getMovieList();
     }
 

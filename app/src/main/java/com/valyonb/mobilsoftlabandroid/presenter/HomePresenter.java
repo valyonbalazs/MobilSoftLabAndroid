@@ -1,8 +1,7 @@
 package com.valyonb.mobilsoftlabandroid.presenter;
 
-import org.greenrobot.eventbus.EventBus;
 import com.valyonb.mobilsoftlabandroid.interactor.HomeInteractor;
-import com.valyonb.mobilsoftlabandroid.model.MovieModel;
+import com.valyonb.mobilsoftlabandroid.model.Movie;
 import com.valyonb.mobilsoftlabandroid.view.HomeScreen;
 
 import java.util.List;
@@ -27,7 +26,7 @@ public class HomePresenter extends Presenter<HomeScreen> {
         return instance;
     }
 
-    public List<MovieModel> loadMovies() {
+    public List<Movie> loadMovies() {
         // screen.showMovies(homeInteractor.getMovieList());
         return homeInteractor.getMovieList();
     }

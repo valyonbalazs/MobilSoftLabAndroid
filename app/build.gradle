@@ -17,6 +17,16 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+    productFlavors {
+        development {
+            applicationId "testing.com.valyonb.mobilsoftlabandroid"
+            versionName "1.0-development"
+        }
+        full {
+            applicationId "release.com.valyonb.mobilsoftlabandroid"
+            versionName "1.0-full"
+        }
+    }
 }
 
 dependencies {
@@ -29,6 +39,7 @@ dependencies {
     compile 'com.android.support:recyclerview-v7:23.3.0'
     compile 'com.android.support:cardview-v7:23.0.+'
     compile 'org.greenrobot:eventbus:3.0.0'
+    compile 'com.squareup.picasso:picasso:2.5.2'
 }
 
 
