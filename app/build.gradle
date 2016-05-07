@@ -1,4 +1,5 @@
 apply plugin: 'com.android.application'
+apply plugin: 'com.neenbedankt.android-apt'
 
 android {
     compileSdkVersion 23
@@ -18,13 +19,11 @@ android {
         }
     }
     productFlavors {
-        development {
-            applicationId "testing.com.valyonb.mobilsoftlabandroid"
-            versionName "1.0-development"
+        mock {
+            applicationId "com.valyonb.mobilsoftlabandroid.mock"
         }
-        full {
-            applicationId "release.com.valyonb.mobilsoftlabandroid"
-            versionName "1.0-full"
+        prod {
+            applicationId "com.valyonb.mobilsoftlabandroid.prod"
         }
     }
 }
@@ -46,6 +45,7 @@ dependencies {
     // Dagger 2 and Compiler
     compile "com.google.dagger:dagger-compiler:2.0.1"
     compile 'com.google.dagger:dagger:2.0.1'
+    apt "com.google.dagger:dagger-compiler:2.0.1"
     provided 'javax.annotation:jsr250-api:1.0'
 
     //Retrofit and OkHttp
