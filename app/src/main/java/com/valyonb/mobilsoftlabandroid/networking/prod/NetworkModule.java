@@ -1,10 +1,12 @@
-package com.valyonb.mobilsoftlabandroid.networking;
+package com.valyonb.mobilsoftlabandroid.networking.prod;
 
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Matrix;
 import android.os.AsyncTask;
 import android.util.Log;
+
+import com.valyonb.mobilsoftlabandroid.networking.Network;
 
 import java.io.BufferedInputStream;
 import java.io.IOException;

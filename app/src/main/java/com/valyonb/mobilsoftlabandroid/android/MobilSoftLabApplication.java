@@ -10,19 +10,19 @@ import com.valyonb.mobilsoftlabandroid.view.ViewModule;
  */
 public class MobilSoftLabApplication extends Application {
 
-    public static SugarAppApplicationComponent injector;
+    public static MobilSoftLabApplicationComponent injector;
 
     @Override
     public void onCreate() {
         super.onCreate();
         if (BuildConfig.FLAVOR.equals("mock")) {
-            injector = DaggerMockSugarAppApplicationComponent.builder().viewModule(new ViewModule(this)).build();
+            injector = DaggerMockMobilSoftLabApplicationComponent.builder().viewModule(new ViewModule(this)).build();
         } else {
-            injector = DaggerSugarAppApplicationComponent.builder().viewModule(new ViewModule(this)).build();
+            injector = DaggerMobilsoftLabApplicationComponent.builder().viewModule(new ViewModule(this)).build();
         }
     }
 
-    public void setInjector(SugarAppApplicationComponent appComponent) {
+    public void setInjector(MobilSoftLabApplicationComponent appComponent) {
         injector = appComponent;
         injector.inject(this);
     }

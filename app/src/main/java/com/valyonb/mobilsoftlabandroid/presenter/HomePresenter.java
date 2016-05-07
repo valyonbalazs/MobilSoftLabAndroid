@@ -4,6 +4,8 @@ import com.valyonb.mobilsoftlabandroid.interactor.HomeInteractor;
 import com.valyonb.mobilsoftlabandroid.model.Movie;
 import com.valyonb.mobilsoftlabandroid.view.HomeScreen;
 
+import javax.inject.Inject;
+
 import java.util.List;
 
 /**
@@ -11,7 +13,8 @@ import java.util.List;
  */
 public class HomePresenter extends Presenter<HomeScreen> {
 
-    private HomeInteractor homeInteractor;
+    @Inject
+    public HomeInteractor homeInteractor;
 
     public static HomePresenter instance = null;
 
