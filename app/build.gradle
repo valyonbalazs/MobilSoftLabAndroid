@@ -26,6 +26,11 @@ android {
             applicationId "com.valyonb.mobilsoftlabandroid.prod"
         }
     }
+    sourceSets {
+        mockDebug {
+            java.srcDirs = ['src/mockDebug/java', 'src/test/java/com/valyonb/mobilsoftlabandroid']
+        }
+    }
 }
 
 dependencies {

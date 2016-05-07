@@ -11,15 +11,11 @@ import com.valyonb.mobilsoftlabandroid.view.ViewModule;
 import javax.inject.Singleton;
 
 import dagger.Component;
+import dagger.Module;
 
-/**
- * Created by Máté on 27/04/2016.
- */
 @Singleton
+@Module
 @Component(modules = {ViewModule.class, InteractorModule.class, ModelModule.class, NetworkModule.class})
-/**
- * Created by valyonbalazs on 06/05/16.
- */
 public interface MobilSoftLabApplicationComponent {
 
     void inject(MainActivity mainActivity);

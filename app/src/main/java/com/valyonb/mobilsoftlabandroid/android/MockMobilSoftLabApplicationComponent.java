@@ -17,26 +17,6 @@ import dagger.Component;
  */
 @Singleton
 @Component(modules = {ViewModule.class, InteractorModule.class, MockModelModule.class, MockNetworkModule.class})
-public class MockMobilSoftLabApplicationComponent implements MobilSoftLabApplicationComponent {
+public interface MockMobilSoftLabApplicationComponent extends MobilSoftLabApplicationComponent {
 
-
-    @Override
-    public void inject(MainActivity mainActivity) {
-
-    }
-
-    @Override
-    public void inject(HomePresenter homePresenter) {
-
-    }
-
-    @Override
-    public void inject(HomeInteractor interactor) {
-
-    }
-
-    @Override
-    public void inject(MobilSoftLabApplication app) {
-
-    }
 }
