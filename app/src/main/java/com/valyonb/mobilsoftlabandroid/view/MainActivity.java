@@ -1,6 +1,7 @@
 package com.valyonb.mobilsoftlabandroid.view;
 
 
+import android.content.Intent;
 import android.content.res.Configuration;
 import android.net.Uri;
 import android.os.Bundle;
@@ -15,6 +16,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
+import android.widget.Toast;
 
 import com.valyonb.mobilsoftlabandroid.R;
 
@@ -31,6 +35,7 @@ public class MainActivity extends AppCompatActivity
     private DrawerLayout drawer;
     private Toolbar toolbar;
     private ActionBarDrawerToggle toggle;
+    private Button btn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -146,6 +151,21 @@ public class MainActivity extends AppCompatActivity
         return true;
     }
 
+    public void onClick(View v) {
+
+        startActivity(new Intent(Intent.ACTION_VIEW).setData(Uri.parse("http://www.imdb.com/title/tt0120915/?ref_=nv_sr_4")));
+
+    }
+
+    public void onClickTrailer(View v) {
+
+        startActivity(new Intent(Intent.ACTION_VIEW).setData(Uri.parse("http://www.imdb.com/video/imdb/vi2143788569/imdb/embed?autoplay=false")));
+    }
+
+    public void onClickAddToFavourite(View v) {
+        Toast.makeText(MainActivity.this, "Added to favourites!",
+                Toast.LENGTH_LONG).show();
+    }
 
     @Override
     public void onFragmentInteraction(Uri uri) {

@@ -9,6 +9,9 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.ImageButton;
+import android.widget.Toast;
 
 import com.valyonb.mobilsoftlabandroid.R;
 import com.valyonb.mobilsoftlabandroid.adapter.HomeAdapter;
@@ -26,6 +29,7 @@ public class HomeFragment extends Fragment implements HomeScreen {
     private RecyclerView recyclerViewMovies;
     private List<Movie> movieList;
     private HomeAdapter homeAdapter;
+    private ImageButton addBtn;
 
     public HomeFragment() {
 
@@ -65,12 +69,15 @@ public class HomeFragment extends Fragment implements HomeScreen {
         homeAdapter = new HomeAdapter(getContext(), movieList);
         recyclerViewMovies.setAdapter(homeAdapter);
         homeAdapter.notifyDataSetChanged();
+
         return view;
     }
 
     @Override
     public void onResume() {
         super.onResume();
+        
+
     }
 
     @Override
@@ -80,5 +87,7 @@ public class HomeFragment extends Fragment implements HomeScreen {
 
     public interface OnFragmentInteractionListener {
         void onFragmentInteraction(Uri uri);
+
     }
+
 }

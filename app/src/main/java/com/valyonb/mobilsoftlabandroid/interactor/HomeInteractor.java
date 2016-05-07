@@ -1,12 +1,11 @@
 package com.valyonb.mobilsoftlabandroid.interactor;
 
-import android.widget.ImageView;
-
-import com.squareup.picasso.Picasso;
-import com.valyonb.mobilsoftlabandroid.R;
 import com.valyonb.mobilsoftlabandroid.model.Movie;
 import com.valyonb.mobilsoftlabandroid.model.MovieFragmentType;
-import com.valyonb.mobilsoftlabandroid.networking.NetworkModule;
+import com.valyonb.mobilsoftlabandroid.model.prod.MovieDbModel;
+import com.valyonb.mobilsoftlabandroid.networking.MovieApi;
+
+import javax.inject.Inject;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -17,30 +16,45 @@ import java.util.List;
  */
 public class HomeInteractor{
 
-    private List<Movie> movieList;
+    @Inject
+    MovieDbModel movieDbModel;
+
+    @Inject
+    MovieApi movieApi;
 
     public HomeInteractor() {
+
+    }
+
+    public void addMovie(Movie m) {
+        movieDbModel.insertMovie(m);
+    }
+
+    private List<Movie> movieList;
+
+    /*public HomeInteractor() {
         movieList = new ArrayList<>();
 
         Movie.deleteAll(Movie.class);
 
         // just for testing ORM layer, with different date
         Date date = new Date();
-        // ImageView imageView = (ImageView) findViewById(R.id.moviePhoto);
-        // Picasso.with(this).load("http://www.retro36.com/images/product/s/star-wars-empire-strikes-back-one-sheet-maxi-poster-256px-256px.jpg").into(imageView);
-        Movie movie = new Movie(
-                MovieFragmentType.HOME,
-                "1",
-                "Star Wars",
-                date.toString(),
-                null,
-                5,
-                "http://imdb.com",
-                "http://youtube.com");
 
-        movie.save();
+        for(int i  = 0; i < 10; i++) {
+            Movie movie = new Movie(
+                    MovieFragmentType.HOME,
+                    String.valueOf(i),
+                    "Star Wars",
+                    "In a galaxy far far away..",
+                    null,
+                    5,
+                    "http://imdb.com",
+                    "http://youtube.com");
 
-    }
+            movie.save();
+        }
+
+    }*/
 
     public List<Movie> getMovieList() {
 

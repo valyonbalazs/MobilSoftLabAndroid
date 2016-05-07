@@ -4,15 +4,16 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/drawer_layout"
-    android:layout_width="match_parent"
+    android:layout_width="fill_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
-    tools:openDrawer="start">
+    tools:openDrawer="start"
+    android:background="@color/design_fab_stroke_end_inner_color">
 
     <!-- This LinearLayout represents the contents of the screen  -->
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
         android:orientation="vertical">
 
         <!-- The ActionBar displayed at the top -->
@@ -24,8 +25,8 @@
         <!-- The main content view where fragments are loaded -->
         <FrameLayout
             android:id="@+id/flContent"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content" />
     </LinearLayout>
 
     <!-- The navigation drawer that comes from the left -->

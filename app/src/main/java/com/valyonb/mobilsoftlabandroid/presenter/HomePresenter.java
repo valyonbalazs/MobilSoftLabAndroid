@@ -13,9 +13,9 @@ public class HomePresenter extends Presenter<HomeScreen> {
 
     private HomeInteractor homeInteractor;
 
-    private static HomePresenter instance = null;
+    public static HomePresenter instance = null;
 
-    private HomePresenter() {
+    public HomePresenter() {
         homeInteractor = new HomeInteractor();
     }
 

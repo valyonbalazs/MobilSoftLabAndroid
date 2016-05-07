@@ -1,0 +1,163 @@
+swagger: '2.0'
+info:
+  version: '1.0.0'
+  title: MobilsoftLabAndroid API definition
+  description: The MobilSoftLabAndroid API definition for the CRUD operations
+  contact:
+    name: Balázs Valyon
+    email: valyon.balazs@gmail.com
+  license:
+    name: MIT
+    url: http://opensource.org/licenses/MIT
+basePath: /api
+schemes:
+  - http
+consumes:
+  - application/json
+produces:
+  - application/json
+paths:
+  /topmovies:
+    get:
+      description: Returns all the actual top movies of the last 3 months
+      operationId: topMovies
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: top movies response
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/movie'
+        default:
+          description: Getting top movies list error
+          schema:
+            $ref: '#/definitions/errorModel'
+  /newmovies:
+    get:
+      description: Returns all the actual new movies
+      operationId: newMovies
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: new movies response
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/movie'
+        default:
+          description: Getting new tv shows list error
+          schema:
+            $ref: '#/definitions/errorModel'
+  /airedtvshows:
+    get:
+      description: Returns all the actually aired tv shows
+      operationId: airedTvShows
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: aired tv shows response
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/movie'
+        default:
+          description: Getting aired tv shows list error
+          schema:
+            $ref: '#/definitions/errorModel'
+  /favourites:
+    get:
+      description: Returns all the favurited elements
+      operationId: favourites
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: favourites response
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/movie'
+        default:
+          description: Getting favourites list error
+          schema:
+            $ref: '#/definitions/errorModel'
+  /addfavourites:
+    post:
+      description: Add a favourite element
+      operationId: addFavourite
+      produces:
+        - application/json
+      parameters:
+        - in: body
+          name: body
+          description: Added a favourite element
+          required: true
+          schema:
+            $ref: "#/definitions/movie"
+      responses:
+        default:
+          description: successful operation
+  /deletefavourite/{externalMovieId}:
+    delete:
+      description: deletes a favourited item
+      operationId: deleteFavourite
+      parameters:
+        - name: externalMovieId
+          in: path
+          description: Id of the movie element
+          required: true
+          type: integer
+          format: int64
+      responses:
+        '200':
+          description: favourite deleted
+        default:
+          description: Favourite delete error
+          schema:
+            $ref: '#/definitions/errorModel'
+definitions:
+  movie:
+    type: object
+    required:
+      - movieFragmentType
+      - externalMovieId
+      - movieTitle
+      - movieShortDescription
+      - movieLongDescription
+      - movieRating
+      - imdbUrl
+      - trailerUrl
+    properties:
+      movieFragmentType:
+        type: string
+      externalMovieId:
+        type: integer
+        format: int64
+      movieTitle:
+        type: string
+      movieShortDescription:
+        type: string
+      movieLongDescription:
+        type: string
+      movieRating:
+        type: integer
+        format: int64
+      imdbUrl:
+        type: string
+      trailerUrl:
+        type: string
+  errorModel:
+    type: object
+    required:
+      - code
+      - message
+    properties:
+      code:
+        type: integer
+        format: int32
+      message:
+        type: string
