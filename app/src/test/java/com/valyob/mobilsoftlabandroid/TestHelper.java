@@ -13,7 +13,7 @@ public class TestHelper {
     public static void setTestInjector() {
         MobilSoftLabApplication application = (MobilSoftLabApplication)RuntimeEnvironment.application;
         MobilSoftLabApplicationComponent injector = null;
-        // MobilSoftLabApplicationComponent injector = DaggerTestComponent.builder().testModule(new TestModule(application.getApplicationContext())).build();
-        application.setInjector(injector);
+        //MobilSoftLabApplicationComponent injector = DaggerTestComponent.builder().testModule(new TestModule(application.getApplicationContext())).build();
+        //application.setInjector(injector);
     }
 }

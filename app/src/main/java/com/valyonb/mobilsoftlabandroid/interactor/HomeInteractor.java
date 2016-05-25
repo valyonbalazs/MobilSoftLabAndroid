@@ -1,7 +1,9 @@
 package com.valyonb.mobilsoftlabandroid.interactor;
 
+import com.valyonb.mobilsoftlabandroid.android.MobilSoftLabApplication;
 import com.valyonb.mobilsoftlabandroid.model.Movie;
 import com.valyonb.mobilsoftlabandroid.model.MovieFragmentType;
+import com.valyonb.mobilsoftlabandroid.model.MovieModel;
 import com.valyonb.mobilsoftlabandroid.model.prod.MovieDbModel;
 import com.valyonb.mobilsoftlabandroid.networking.MovieApi;
 
@@ -10,6 +12,9 @@ import javax.inject.Inject;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Response;
 
 /**
  * Created by valyonbalazs on 20/04/16.
@@ -23,15 +28,35 @@ public class HomeInteractor{
     MovieApi movieApi;
 
     public HomeInteractor() {
-
+        MobilSoftLabApplication.injector.inject(this);
     }
 
     public void addMovie(Movie m) {
+
         movieDbModel.insertMovie(m);
     }
 
-    private List<Movie> movieList;
+    public List<MovieModel> getMovieList() throws Exception {
 
+        Response<List<MovieModel>> response = null;
+
+        Call<List<MovieModel>> call = movieApi.newMoviesGet();
+        try {
+            response = call.execute();
+        } catch (Exception e) {
+            throw new Exception("Network error on execute with get!");
+        }
+        if (response.code() != 200) {
+            throw new Exception("Network error with get!");
+        }
+
+        return response.body();
+
+        // movieList = Movie.listAll(Movie.class);
+        // return movieList;
+    }
+
+    // private List<Movie> movieList;
     /*public HomeInteractor() {
         movieList = new ArrayList<>();
 
@@ -55,16 +80,4 @@ public class HomeInteractor{
         }
 
     }*/
-
-    public List<Movie> getMovieList() {
-
-        // downloading data from API later
-        // NetworkModule networkModule = new NetworkModule();
-        // networkModule.downloadData("url");
-
-        movieList = Movie.listAll(Movie.class);
-
-        return movieList;
-    }
-
 }

@@ -34,8 +34,8 @@ public class MovieMock {
     public static Movie movie2 = new Movie(
             MovieFragmentType.HOME,
             "2",
-            "Star Wars",
-            "In a galaxy far far away..",
+            "Deadpool",
+            "A merc with a mouth",
             null,
             5,
             "http://imdb.com",

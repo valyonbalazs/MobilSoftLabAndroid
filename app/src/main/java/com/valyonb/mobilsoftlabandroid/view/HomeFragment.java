@@ -13,6 +13,7 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
+import com.google.android.gms.analytics.Tracker;
 import com.valyonb.mobilsoftlabandroid.R;
 import com.valyonb.mobilsoftlabandroid.adapter.HomeAdapter;
 import com.valyonb.mobilsoftlabandroid.model.Movie;
@@ -76,7 +77,9 @@ public class HomeFragment extends Fragment implements HomeScreen {
     @Override
     public void onResume() {
         super.onResume();
-        
+
+
+
 
     }
 
