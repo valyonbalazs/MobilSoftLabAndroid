@@ -22,6 +22,8 @@ import com.valyonb.mobilsoftlabandroid.presenter.HomePresenter;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.inject.Inject;
+
 
 public class HomeFragment extends Fragment implements HomeScreen {
 
@@ -31,6 +33,7 @@ public class HomeFragment extends Fragment implements HomeScreen {
     private List<Movie> movieList;
     private HomeAdapter homeAdapter;
     private ImageButton addBtn;
+
 
     public HomeFragment() {
 

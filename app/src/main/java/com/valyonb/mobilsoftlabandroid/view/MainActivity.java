@@ -21,6 +21,9 @@ import android.widget.Toast;
 
 import com.google.android.gms.analytics.HitBuilders;
 import com.google.android.gms.analytics.Tracker;
+import com.crashlytics.android.Crashlytics;
+import io.fabric.sdk.android.Fabric;
+
 import com.valyonb.mobilsoftlabandroid.R;
 import com.valyonb.mobilsoftlabandroid.android.MobilSoftLabApplication;
 
@@ -45,6 +48,9 @@ public class MainActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         MobilApp application = (MobilApp) getApplication();
         mTracker = application.getDefaultTracker();
+        Fabric.with(this, new Crashlytics());
+        logUser();
+
 
         StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
         StrictMode.setThreadPolicy(policy);
@@ -182,5 +188,13 @@ public class MainActivity extends AppCompatActivity
     @Override
     public void onFragmentInteraction(Uri uri) {
 
+    }
+
+    private void logUser() {
+        // TODO: Use the current user's information
+        // You can call any combination of these three methods
+        Crashlytics.setUserIdentifier("12345");
+        Crashlytics.setUserEmail("valyon.balazs@gmail.com");
+        Crashlytics.setUserName("ValyonB MobilSoftLabFabricTest");
     }
 }

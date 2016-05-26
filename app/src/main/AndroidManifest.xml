@@ -23,6 +23,11 @@
             </intent-filter>
         </activity>
 
+        <meta-data
+            android:name="io.fabric.ApiKey"
+            android:value="f7aa3deb42cf504fedd3fa482bf23e5121f300a2"
+            />
+
         <meta-data android:name="DATABASE" android:value="mobilsoftDb.db" />
         <meta-data android:name="VERSION" android:value="3" />
         <meta-data android:name="QUERY_LOG" android:value="true" />

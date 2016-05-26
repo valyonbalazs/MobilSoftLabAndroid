@@ -1,5 +1,6 @@
 apply plugin: 'com.android.application'
 apply plugin: 'com.neenbedankt.android-apt'
+apply plugin: 'io.fabric'
 
 android {
     compileSdkVersion 23
@@ -11,6 +12,9 @@ android {
         targetSdkVersion 23
         versionCode 1
         versionName "1.0"
+    }
+    lintOptions {
+        abortOnError false
     }
     buildTypes {
         release {
@@ -26,6 +30,7 @@ android {
 //            applicationId "com.valyonb.mobilsoftlabandroid.prod"
 //        }
 //    }
+
 //    sourceSets {
 //        main {
 //            java.srcDirs = ['src/main/java/com/valyonb/mobilsoftlabandroid']
@@ -65,6 +70,11 @@ dependencies {
 
     //Google analytics
     compile 'com.google.android.gms:play-services-analytics:9.0.0'
+
+    //Crashlitycs
+    compile('com.crashlytics.sdk.android:crashlytics:2.5.5@aar') {
+        transitive = true;
+    }
 
     //Robolectric
     testCompile('org.robolectric:shadows-support-v4:3.0-rc3') {
