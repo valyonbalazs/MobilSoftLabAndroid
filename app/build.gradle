@@ -8,10 +8,12 @@ android {
 
     defaultConfig {
         applicationId "com.valyonb.mobilsoftlabandroid"
-        minSdkVersion 21
+        minSdkVersion 23
         targetSdkVersion 23
         versionCode 1
         versionName "1.0"
+
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     lintOptions {
         abortOnError false
@@ -75,6 +77,11 @@ dependencies {
     compile('com.crashlytics.sdk.android:crashlytics:2.5.5@aar') {
         transitive = true;
     }
+
+    //Espresso
+    androidTestCompile 'com.android.support.test:testing-support-lib:0.1'
+    androidTestCompile 'com.android.support.test.espresso:espresso-core:2.0'
+    //androidTestCompile 'com.android.support.test:runner:0.5'
 
     //Robolectric
     testCompile('org.robolectric:shadows-support-v4:3.0-rc3') {
