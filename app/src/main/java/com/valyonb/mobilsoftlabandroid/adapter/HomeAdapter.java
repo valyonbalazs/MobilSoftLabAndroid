@@ -10,6 +10,7 @@ import android.widget.TextView;
 
 import com.valyonb.mobilsoftlabandroid.R;
 import com.valyonb.mobilsoftlabandroid.model.Movie;
+import com.valyonb.mobilsoftlabandroid.model.MovieModel;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,10 +20,10 @@ import java.util.List;
  */
 public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.ViewHolder> {
 
-    private List<Movie> movieList;
+    private List<MovieModel> movieList;
     private Context context;
 
-    public HomeAdapter(Context context, List<Movie> moviesList) {
+    public HomeAdapter(Context context, List<MovieModel> moviesList) {
         this.context = context;
         this.movieList = new ArrayList<>();
         this.movieList.addAll(moviesList);
@@ -36,7 +37,7 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.ViewHolder> {
 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
-        Movie movie = movieList.get(position);
+        MovieModel movie = movieList.get(position);
 
         holder.movieTitle.setText(movie.getMovieTitle());
         holder.movieShortDescription.setText(movie.getMovieShortDescription());

@@ -2,6 +2,7 @@ package com.valyonb.mobilsoftlabandroid.presenter;
 
 import com.valyonb.mobilsoftlabandroid.interactor.HomeInteractor;
 import com.valyonb.mobilsoftlabandroid.model.Movie;
+import com.valyonb.mobilsoftlabandroid.model.MovieModel;
 import com.valyonb.mobilsoftlabandroid.view.HomeScreen;
 
 import javax.inject.Inject;
@@ -29,9 +30,10 @@ public class HomePresenter extends Presenter<HomeScreen> {
         return instance;
     }
 
-    public List<Movie> loadMovies() {
+    public List<MovieModel> loadMovies() throws Exception {
         // screen.showMovies(homeInteractor.getMovieList());
-        return homeInteractor.getMovieList();
+            return homeInteractor.getMovieList();
+
     }
 
     @Override

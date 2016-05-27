@@ -19,6 +19,7 @@ import retrofit2.Response;
 /**
  * Created by valyonbalazs on 20/04/16.
  */
+
 public class HomeInteractor{
 
     @Inject
@@ -28,6 +29,8 @@ public class HomeInteractor{
     MovieApi movieApi;
 
     public HomeInteractor() {
+
+
         MobilSoftLabApplication.injector.inject(this);
     }
 
@@ -38,22 +41,38 @@ public class HomeInteractor{
 
     public List<MovieModel> getMovieList() throws Exception {
 
-        Response<List<MovieModel>> response = null;
+//        Response<List<MovieModel>> response = null;
+//
+//        Call<List<MovieModel>> call = movieApi.newMoviesGet();
+//        try {
+//            response = call.execute();
+//        } catch (Exception e) {
+//            throw new Exception("Network error on execute with get!");
+//        }
+//        if (response.code() != 200) {
+//            throw new Exception("Network error with get!");
+//        }
 
-        Call<List<MovieModel>> call = movieApi.newMoviesGet();
-        try {
-            response = call.execute();
-        } catch (Exception e) {
-            throw new Exception("Network error on execute with get!");
+        //return response.body();
+
+
+        List<MovieModel> movieList = new ArrayList<>();
+        Date date = new Date();
+
+        for(int i  = 0; i < 10; i++) {
+            MovieModel movie = new MovieModel();
+            movie.setMovieFragmentType(MovieFragmentType.HOME.toString());
+            movie.setMovieTitle("Star Wars");
+            movie.setExternalMovieId((long)i);
+            movie.setMovieLongDescription("In a galaxy far far away..");
+            movie.setMovieShortDescription("In a galaxy far far away..");
+            movie.setImdbUrl("http://imdb.com");
+            movie.setTrailerUrl("http://youtube.com");
+            movie.setMovieRating((long) 5);
+            movieList.add(movie);
+
         }
-        if (response.code() != 200) {
-            throw new Exception("Network error with get!");
-        }
-
-        return response.body();
-
-        // movieList = Movie.listAll(Movie.class);
-        // return movieList;
+         return movieList;
     }
 
     // private List<Movie> movieList;

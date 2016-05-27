@@ -46,7 +46,7 @@ public class MainActivity extends AppCompatActivity
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        MobilApp application = (MobilApp) getApplication();
+        MobilSoftLabApplication application = (MobilSoftLabApplication) getApplication();
         mTracker = application.getDefaultTracker();
         Fabric.with(this, new Crashlytics());
         logUser();

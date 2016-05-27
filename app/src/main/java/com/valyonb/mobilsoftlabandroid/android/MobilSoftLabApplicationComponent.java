@@ -14,7 +14,6 @@ import dagger.Component;
 import dagger.Module;
 
 @Singleton
-@Module
 @Component(modules = {ViewModule.class, InteractorModule.class, ModelModule.class, NetworkModule.class})
 public interface MobilSoftLabApplicationComponent {
 

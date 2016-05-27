@@ -17,6 +17,7 @@ import com.google.android.gms.analytics.Tracker;
 import com.valyonb.mobilsoftlabandroid.R;
 import com.valyonb.mobilsoftlabandroid.adapter.HomeAdapter;
 import com.valyonb.mobilsoftlabandroid.model.Movie;
+import com.valyonb.mobilsoftlabandroid.model.MovieModel;
 import com.valyonb.mobilsoftlabandroid.presenter.HomePresenter;
 
 import java.util.ArrayList;
@@ -30,7 +31,7 @@ public class HomeFragment extends Fragment implements HomeScreen {
 
     private OnFragmentInteractionListener mListener;
     private RecyclerView recyclerViewMovies;
-    private List<Movie> movieList;
+    private List<MovieModel> movieList;
     private HomeAdapter homeAdapter;
     private ImageButton addBtn;
 
@@ -69,7 +70,11 @@ public class HomeFragment extends Fragment implements HomeScreen {
         recyclerViewMovies.setLayoutManager(llm);
 
         movieList = new ArrayList<>();
-        showMovies(HomePresenter.getInstance().loadMovies());
+        try {
+            showMovies(HomePresenter.getInstance().loadMovies());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         homeAdapter = new HomeAdapter(getContext(), movieList);
         recyclerViewMovies.setAdapter(homeAdapter);
         homeAdapter.notifyDataSetChanged();
@@ -87,7 +92,7 @@ public class HomeFragment extends Fragment implements HomeScreen {
     }
 
     @Override
-    public void showMovies(List<Movie> movieList) {
+    public void showMovies(List<MovieModel> movieList) {
         this.movieList.addAll(movieList);
     }
 

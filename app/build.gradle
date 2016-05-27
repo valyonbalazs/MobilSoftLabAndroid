@@ -24,20 +24,20 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
-//    productFlavors {
-//        mock {
-//            applicationId "com.valyonb.mobilsoftlabandroid.mock"
-//        }
-//        prod {
-//            applicationId "com.valyonb.mobilsoftlabandroid.prod"
-//        }
-//    }
+    productFlavors {
+        mock {
+            applicationId "com.valyonb.mobilsoftlabandroid.mock"
+        }
+        prod {
+            applicationId "com.valyonb.mobilsoftlabandroid.prod"
+        }
+    }
 
 //    sourceSets {
 //        main {
 //            java.srcDirs = ['src/main/java/com/valyonb/mobilsoftlabandroid']
 //        }
-//        mockDebug {
+//        test {
 //            java.srcDirs = ['src/test/java/com/valyonb/mobilsoftlabandroid']
 //        }
 //    }

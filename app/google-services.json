@@ -8,7 +8,7 @@
       "client_info": {
         "mobilesdk_app_id": "1:306838853864:android:59abbab728965840",
         "android_client_info": {
-          "package_name": "com.valyonb.mobilsoftlabandroid"
+          "package_name": "com.valyonb.mobilsoftlabandroid.mock"
         }
       },
       "oauth_client": [],
